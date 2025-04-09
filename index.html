@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Product Details</title>
+</head>
+<body>
+    <div style="text-align: center; background-color: antiquewhite; width: 33%; padding: 2rem;">
+  <h1>Add a New Product</h1>
+  <form action="http://localhost:3000/add-product" method="POST" >
+
+    <div>
+      <label for="product_url">Product URL:</label>
+      <input type="url" id="product_url" name="product_url">
+    </div>
+    <br>
+    <div>
+      <label for="product_name">Product Name:</label>
+      <input type="text" id="product_name" name="product_name" required>
+    </div>
+    <br>
+<!-- user details -->
+    <h1>Add a New User</h1>
+
+        <div>
+            <label for="user_name">User Name:</label>
+            <input type="text" id="user_name" name="user_name" required>
+        </div>
+        <br>
+        <div>
+            <label for="user_password">User Password:</label>
+            <input type="password" id="user_password" name="user_password" required>
+            
+        </div>
+        <br>
+        <!-- product discription -->
+        <h1>Add Product Description</h1>
+        <div>
+            <label for="product_brief_description">Brief Description:</label>
+            <textarea id="product_brief_description" name="product_brief_description" rows="3"></textarea>
+        </div>
+        <br>
+        <div>
+            <label for="product_description">Full Description:</label>
+            <textarea id="product_description" name="product_description" rows="5"></textarea>
+        </div>
+        <br>
+        <div>
+            <label for="product_image">Product Image URL:</label>
+            <input type="text" id="product_image" name="product_image">
+        </div>
+        <br>
+        <div>
+            <label for="product_link">Product Link:</label>
+            <input type="text" id="product_link" name="product_link">
+        </div>
+        <br>
+        <!-- product price -->
+        <h1>Add Product Price</h1>
+        <div>
+            <label for="starting_price">Starting Price:</label>
+            <input type="number" step="0.01" id="starting_price" name="starting_price" required>
+        </div>
+        <br>
+        <div>
+            <label for="price_range">Price Range </label>
+            <input type="text" id="price_range" name="price_range">
+        </div>
+        <br>
+ 
+    <button type="submit" >Submit Details </button>
+  </form>
+
+    </form>
+    </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add New Product</h1>
+    <form action="http://localhost:3000/add-product" method="POST">
+        <label for="product_url">Product URL:</label>
+        <input type="text" id="product_url" name="product_url" required><br><br>
+
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" name="product_name" required><br><br>
+
+        <button type="submit">Add Product</button>
+    </form>
+
+    <div id="message" class="message" style="display: none;"></div>
+
+    <script>
+        const form = document.querySelector('form');
+        const messageDiv = document.getElementById('message');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                messageDiv.textContent = result.message;
+                messageDiv.className = `message ${result.status}`;
+                messageDiv.style.display = 'block';
+                form.reset();
+
+            } catch (error) {
+                messageDiv.textContent = `Error sending data: ${error.message}`;
+                messageDiv.className = 'message error';
+                messageDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html> -->
